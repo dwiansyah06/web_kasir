@@ -61,7 +61,11 @@
 					<p>Kategori : <?= $row->kategori ?> <br> Harga : Rp <?= $row->harga ?></p>
 					<p style="margin-bottom: 0">Quantity:</p>
 					<input type="number" class="form-control" id="<?= $row->id_menu ?>" value="1" name="quantity" placeholder="qty" style="margin-bottom: 15px;">
+					<?php if ($row->stok == 0) {
+						echo '<button class="btn btn-success disabled">Empty</button>';
+					} else { ?>
 					<button class="add_cart btn btn-success" data-idmenu="<?= $row->id_menu ?>" data-namamenu="<?= $row->nama_menu ?>" data-hargamenu="<?= $row->harga ?>">Order</button>
+					<?php } ?>
 				</div>
 				<?php endforeach; ?>
 			</div>
